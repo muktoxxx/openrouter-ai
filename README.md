@@ -1,83 +1,56 @@
-# GPT-4o Telegram Bot
+GPT-4o Telegram Bot
+A Telegram bot powered by OpenAI's GPT-4o with support for advanced text and image processing.
 
-A Telegram bot powered by GPT-4o for advanced conversational AI with support for text and images.
+🚀 Features
+🔁 Multi-model support: gpt-4o, gpt-4o-vision, gpt-4, gpt-3.5-turbo
 
-## Setup
+💬 Natural text conversation
 
-### Prerequisites
-- Python 3.9+
-- [Docker](https://docs.docker.com/get-docker/) (optional)
-- A Telegram bot token (from [@BotFather](https://t.me/BotFather))
-- OpenAI API key
+🖼️ Image description and analysis
 
-### Local Installation
-1. Clone the repository.
-   ```sh
-   git clone <repo-url>
-   cd telegram_gpt4o_bot
+📲 Model selection via inline buttons
 
-Set up the environment:
+📦 Dockerized deployment for convenience
 
-sh
+🧰 Prerequisites
+Python 3.9+
 
+Docker (optional)
+
+Telegram bot token via @BotFather
+
+OpenAI API key
+
+🛠️ Installation
+Clone and Set Up
+bash
+git clone <repo-url>
+cd telegram_gpt4o_bot
 cp .env.example .env
-Update .env with your credentials.
-
-
-Install dependencies:
-
-sh
-
+# Then update your .env file with your bot token and API key
+Install Dependencies
+bash
 pip install -r requirements.txt
-
-Run the bot:
-
-sh
-
+Run Locally
+bash
 python src/bot.py
-
-Docker Deployment
-
-Build the Docker image:
-
-sh
-
+🐳 Docker Deployment
+Build & Run
+bash
 docker-compose build
-
-Start the bot:
-
-sh
-
 docker-compose up -d
+🧑‍💻 Usage
+Telegram Commands
+/models – List and switch between available models
 
-Usage
-Commands
+⚙️ Configuration
+Modify the .env file as needed:
 
-/models - List available models and change the current one
-
-Features
-
-Multi-model support (GPT-4o, GPT-4, GPT-3.5-turbo)
-
-Text processing
-
-Image description and analysis
-
-Model selection via interactive buttons
-
-Configuration
-Edit .env to configure:
-
-
-BOT_TOKEN - Your Telegram bot token
-
-OPENAI_API_KEY - Your OpenAI API key
-
-MODEL_NAME - Default model to use
-
-MAX_IMAGE_SIZE - Maximum image size to process
-
-TEMP_IMAGE_DIR - Directory for temporary image storage
-
-License
-MIT License
+Variable	Description
+BOT_TOKEN	Your Telegram bot token
+OPENAI_API_KEY	Your OpenAI API key
+MODEL_NAME	Default model to start with
+MAX_IMAGE_SIZE	Max image size (in pixels or bytes)
+TEMP_IMAGE_DIR	Directory for temporary image storage
+📄 License
+MIT License — feel free to use, modify, and distribute.
