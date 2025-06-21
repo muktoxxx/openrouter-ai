@@ -1,0 +1,11 @@
+# .env is not committed to Git
+.env
+*.log
+*.db
+__pycache__/
+venv/
+.sh/
+
+# Docker-specific
+*.docker/
+*.build/

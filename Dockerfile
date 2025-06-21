@@ -1,18 +1,28 @@
-# Use official Python image
-FROM python:3.10-slim
+# Use an official Python runtime as the base image
+FROM python:3.9-slim
 
 # Set working directory
 WORKDIR /app
 
-# Copy files
-COPY . /app
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-# Install dependencies
+# Copy requirements and install dependencies
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Set environment variables (use .env file in production)
-ENV TELEGRAM_BOT_TOKEN=your_telegram_token_here
-ENV OPENROUTER_API_KEY=your_openrouter_api_key_here
+# Install Pillow with all optional dependencies
+RUN pip install --no-cache-dir "Pillow[all]"
 
-# Run the bot
-CMD ["python", "bot.py"]
+# Copy the rest of the application
+COPY . /app
+
+# Expose the port the app runs on
+EXPOSE 8000
+
+# Command to run the bot
+CMD ["python", "src/bot.py"]
