@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  telegram-gpt4o-bot:
+    build: .
+    container_name: telegram-gpt4o-bot
+    restart: unless-stopped
+    env_file:
+      - .env
